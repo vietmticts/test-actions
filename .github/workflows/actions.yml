@@ -10,6 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup
-      run: npm install
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        sed -i 's/ssh:\/\/git@github.com/https:\/\/${{ secrets.NODE_AUTH_TOKEN }}:x-oauth-basic@github.com/g' package.json
+        cat package.json
+        npm install
