@@ -11,6 +11,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setup
       run: npm install
-      env:
-        CI: true
-        NODE_AUTH_TOKEN: ${{secrets.AUTH_TOKEN}}
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
