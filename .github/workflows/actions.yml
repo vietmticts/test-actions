@@ -10,5 +10,4 @@ jobs:
     steps:
     - name: Setup
       run: npm install
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.AUTH_TOKEN}}
+
