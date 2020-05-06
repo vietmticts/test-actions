@@ -10,7 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup
-      run: |
-        sed -i 's/ssh:\/\/git@github.com/https:\/\/${{ secrets.NODE_AUTH_TOKEN }}:x-oauth-basic@github.com/g' package.json
-        cat package.json
-        npm install
+      run: npm install
+      env:
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
